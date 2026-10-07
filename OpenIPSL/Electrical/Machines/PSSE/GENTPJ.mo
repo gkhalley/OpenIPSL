@@ -89,7 +89,7 @@ protected
   parameter Types.PerUnit Xppqsat0=((Xppq - Xl)/qsat0) + Xl;
   parameter Complex Zs=Complex(R_a,Xppqsat0) "Equivalent impedance";
   parameter Complex Is=Complex(real(It + VT/Zs),imag(It + VT/Zs)) "Equivalent internal current source";
-  parameter Complex PSIpp0=Complex(real(Zs*Is),(imag(Zs*Is) - id0*(Xppqsat0-Xppdsat0))) "Sub-transient flux linkage in stator reference frame";
+  parameter Complex PSIpp0=Zs*Is "Sub-transient flux linkage in stator reference frame (with Xppq on both axes)";
   parameter Complex PSIpp0_dq=PSIpp0*DQ_dq "Flux linkage in rotor reference frame";
   parameter Types.PerUnit PSIppq0=imag(PSIpp0_dq) "q-axis component of the sub-transient flux linkage";
   parameter Types.PerUnit PSIppd0=real(PSIpp0_dq) "d-axis component of the sub-transient flux linkage";
