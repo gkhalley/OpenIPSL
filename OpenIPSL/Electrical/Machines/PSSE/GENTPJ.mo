@@ -92,7 +92,7 @@ protected
   parameter Complex PSIpp0=Zs*Is "Sub-transient flux linkage in stator reference frame (with Xppq on both axes)";
   parameter Complex PSIpp0_dq=PSIpp0*DQ_dq "Flux linkage in rotor reference frame";
   parameter Types.PerUnit PSIppq0=imag(PSIpp0_dq) "q-axis component of the sub-transient flux linkage";
-  parameter Types.PerUnit PSIppd0=real(PSIpp0_dq) "d-axis component of the sub-transient flux linkage";
+  parameter Types.PerUnit PSIppd0=real(PSIpp0_dq) - id0*(Xppqsat0-Xppdsat0) "d-axis component of the sub-transient flux linkage";
   parameter Types.Angle ang_PSIpp0=arg(PSIpp0) "flux angle";
   parameter Types.Angle ang_It=arg(It) "current angle";
   parameter Types.Angle ang_PSIpp0andIt=ang_PSIpp0 - ang_It "angle difference";
